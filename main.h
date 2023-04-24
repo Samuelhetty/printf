@@ -51,7 +51,7 @@ int print_c(va_list args, char buffer[],
 	int flags, int width, int precision, int size);
 int print_s(va_list args, char buffer[],
 	int flags, int width, int precision, int size);
-int print_per(va_list args);
+int print_percent(va_list args);
 
 /* Functions to print numbers */
 int print_int(va_list args, char buffer[],

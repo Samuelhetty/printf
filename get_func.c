@@ -53,7 +53,7 @@ int get_precision(const char *format, int *i, va_list arg)
 
 	precision = 0;
 
-	for (curr_i += 1; format[c_par] != '\0'; c_par++)
+	for (c_par += 1; format[c_par] != '\0'; c_par++)
 	{
 		if (is_digit(format[c_par]))
 		{
@@ -117,7 +117,7 @@ int get_width(const char *format, int *i, va_list arg)
 
 	for (c_par = *i + 1; format[c_par] != '\0'; c_par++)
 	{
-		if (is_digit(format[c_parc_par]))
+		if (is_digit(format[c_par]))
 		{
 			width *= 10;
 			width += format[c_par] - '0';

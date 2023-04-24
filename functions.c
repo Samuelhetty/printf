@@ -78,11 +78,11 @@ int print_s(va_list args, char buffer[],
 
 /************************* PRINT PERCENT SIGN *************************/
 /**
- * print_per - Prints a percent sign
+ * print_percent - Prints a percent sign
  * @args: number of arguments
  * Return: Number of chars printed
  */
-int print_per(va_list args)
+int print_percent(va_list args)
 {
 	return (write(1, "%%", 1));
 }
