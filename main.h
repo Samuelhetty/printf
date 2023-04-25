@@ -19,29 +19,29 @@
 #define S_SHORT 1
 
 /**
- * struct fmt - Struct op
+ * struct Format - Struct op
  *
- * @fmt: The format.
- * @fn: The function associated.
+ * @Format: The format.
+ * @func_ptr: The function associated.
  */
-struct fmt
+struct Format
 {
-	char fmt;
-	int (*fn)(va_list, char[], int, int, int, int);
+	char Format;
+	int (*func_ptr)(va_list, char[], int, int, int, int);
 };
 
 
 /**
- * typedef struct fmt fmt_t - Struct op
+ * typedef struct Format formats - Struct op
  *
- * @fmt: The format.
- * @fm_t: The function associated.
+ * @Format: The format.
+ * @formats: The function associated.
  */
-typedef struct fmt fmt_t;
+typedef struct Format formats;
 
 int _printf(const char *format, ...);
 void print_buffer(char buffer[], int *buff_ind);
-int handle_print(const char *fmt, int *i,
+int handle_print(const char *format_str, int *ind,
 va_list arg, char buffer[], int flags, int width, int precision, int size);
 
 /****************** FUNCTIONS ******************/
@@ -102,7 +102,7 @@ int write_num(int ind, char buffer[], int flags, int width, int prec,
 int write_pointer(char buffer[], int ind, int length,
 	int width, int flags, char set, char extra_c, int set_pad);
 
-int write_unsgnd(int is_negative, int ind,char buffer[],
+int write_unsgnd(int is_negative, int ind, char buffer[],
 	int flags, int width, int precision, int size);
 
 /****************** UTILS ******************/
