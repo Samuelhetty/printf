@@ -17,27 +17,20 @@
 /* SIZES */
 #define S_LONG 2
 #define S_SHORT 1
-
 /**
- * struct Format - Struct op
+ * typedef struct Format - Struct op
  *
- * @Format: The format.
- * @func_ptr: The function associated.
- */
-struct Format
-{
-	char Format;
-	int (*func_ptr)(va_list, char[], int, int, int, int);
-};
-
-
-/**
- * typedef struct Format formats - Struct op
- *
+ * @type: struct format specifier character
  * @Format: The format.
  * @formats: The function associated.
  */
-typedef struct Format formats;
+typedef struct Format
+{
+	char type;
+	int (*func_ptr)(va_list, char *, int, int, int, int);
+}
+Format;
+
 
 int _printf(const char *format, ...);
 void print_buffer(char buffer[], int *buff_ind);
@@ -51,7 +44,8 @@ int print_c(va_list args, char buffer[],
 	int flags, int width, int precision, int size);
 int print_s(va_list args, char buffer[],
 	int flags, int width, int precision, int size);
-int print_percent(va_list args);
+int print_percent(va_list args, char buffer[],
+	int flags, int width, int precision, int size);
 
 /* Functions to print numbers */
 int print_int(va_list args, char buffer[],

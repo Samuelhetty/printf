@@ -25,15 +25,15 @@ int handle_print(const char *format_str, int *ind, va_list arg, char buffer[],
 		{'r', print_rev}, {'R', print_rot13string}, {'\0', NULL}
 	};
 
-	for (i = 0; formats[i].Format != '\0'; i++)
+	for (i = 0; formats[i].type != '\0'; i++)
 	{
-		if (format_str[*ind] == formats[i].Format)
+		if (format_str[*ind] == formats[i].type)
 		{
 			return (formats[i].func_ptr(arg, buffer, flags, width, precision, size));
 		}
 	}
 
-	if (formats[i].Format == '\0')
+	if (formats[i].type == '\0')
 	{
 		if (format_str[*ind] == '\0')
 		{
